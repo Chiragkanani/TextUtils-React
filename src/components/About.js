@@ -1,35 +1,39 @@
 import React,{useState} from 'react'
 
-export default function About() {
-    const [mystyle, setMystyle] = useState({
-        color : 'black',
-        backgroundColor:'white'
-    })
+export default function About(props) {
+    // const [mystyle, setMystyle] = useState({
+    //     color : 'black',
+    //     backgroundColor:'white'
+    // })
 
-    const [mymode, setMymode] = useState('Enable Darkmode')
+    // const [mymode, setMymode] = useState('Enable Darkmode')
+    let mystyle ={
+        color : props.mode==="light"?"black":"white",
+        backgroundColor : props.mode==="light"?"white":"#343a40"
+    }
+   
+    // const mode = ()=>{
+    //    if(props.mode === 'light'){
+    //     setMystyle({
+    //         color : 'black',
+    //         backgroundColor:'white'
+    //     })
+    //     // setMymode('Enable darkmode')
+    //    }
+    //    else{
+    //     setMystyle({
+    //         color : 'white',
+    //         backgroundColor:'#343a40',
+    //         border: '1px solid white',
+    //         borderRedius:'2px'
+    //     })
+    //     // setMymode('Disable darkmode')
 
-    const mode= ()=>{
-       if(mystyle.color === 'white'){
-        setMystyle({
-            color : 'black',
-            backgroundColor:'white'
-        })
-        setMymode('Enable darkmode')
-       }
-       else{
-        setMystyle({
-            color : 'white',
-            backgroundColor:'#212121',
-            border: '1px solid white',
-            borderRedius:'2px'
-        })
-        setMymode('Disable darkmode')
-
-       }
-      }
+    //    }
+//    }
      
     return (
-        <div className="container my-4" style={mystyle}>
+        <div className="container my-4" >
             <h1>About Us</h1>
             <div className="accordion" id="accordionExample" style={mystyle}>
                 <div className="accordion-item" style={mystyle}>
@@ -70,7 +74,7 @@ export default function About() {
                 </div>
             </div>
             
-                <button type='button' className='btn btn-primary my-2' onClick={mode}>{mymode}</button>
+                {/* <button type='button' className='btn btn-primary my-2' onClick={mode}>{mymode}</button> */}
             
         </div>
     )
