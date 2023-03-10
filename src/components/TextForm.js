@@ -71,14 +71,14 @@ const handleOnchange = (event)=>{
   <textarea className="form-control" id="exampleFormControlTextarea1" onChange={handleOnchange} style={{backgroundColor: props.mode==="light"?"white":"#343a40",color:props.mode==="light"?"black":"white"}} value={text} rows="8" placeholder="Enter text here"></textarea>
       
 </div>
-<button className="btn btn-primary mx-2 my-1" onClick={uppercase}>Convert to UpperCase</button>
-<button className="btn btn-primary mx-2 my-1" onClick={lowercase}>Convert to LowerCase</button>
-<button className="btn btn-primary my-1 mx-2" onClick={clear}>Clear text</button>
-<button className="btn btn-primary mx-2 my-1" onClick={copy}>Copy text</button>
+<button className="btn btn-secondary mx-2 my-1" onClick={uppercase}>Convert to UpperCase</button>
+<button className="btn btn-secondary mx-2 my-1" onClick={lowercase}>Convert to LowerCase</button>
+<button className="btn btn-secondary my-1 mx-2" onClick={clear}>Clear text</button>
+<button className="btn btn-secondary mx-2 my-1" onClick={copy}>Copy text</button>
     </div>
     <div className="container my-4">
       <h1>Your Text Summry</h1>
-      <p>{text.split(" ").filter(word => word !== '').length} Words and {text.length} Character</p>
+      <p>{text.split(/\s+/).filter(word => word !== '').length} Words and {text.length} Character</p>
       <p>{0.008 * text.split(" ").filter(word => word !== '').length} Minutes for Read</p>
       <h3>Preview of your text</h3>
       <hr/>

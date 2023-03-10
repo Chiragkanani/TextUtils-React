@@ -29,23 +29,40 @@ function App() {
   }
 
 
+const removebodyclass = ()=>{
+  document.body.classList.remove("bg-light")
+  document.body.classList.remove("bg-success")
+  document.body.classList.remove("bg-dark")
+  document.body.classList.remove("bg-danger")
+  document.body.classList.remove("bg-warning")
+  document.body.classList.remove("bg-primary")
+}
 
-
-  const togglemode = () => {
-    if (mode === "dark") {
-      setmode("light")
-      document.body.style.backgroundColor = "white"
-      document.body.style.color = "black"
-      showAlert("light mode is enabled", "success")
-
+  const togglemode = (cls) => {
+    if(cls===null){
+      if (mode === "dark") {
+      removebodyclass()
+        setmode("light")
+        document.body.style.backgroundColor = "white"
+        document.body.style.color = "black"
+        showAlert("light mode is enabled", "success")
+  
+      }
+      else {
+      removebodyclass()
+        setmode("dark")
+        document.body.style.backgroundColor = "#343a40"
+        document.body.style.color = "white"
+        showAlert("dark mode is enabled", "success")
+  
+      }
+    }else{
+      removebodyclass()
+      console.log(cls)
+      document.body.classList.add('bg-'+cls)
     }
-    else {
-      setmode("dark")
-      document.body.style.backgroundColor = "#343a40"
-      document.body.style.color = "white"
-      showAlert("dark mode is enabled", "success")
-
-    }
+    
+    
 
   }
   return (
